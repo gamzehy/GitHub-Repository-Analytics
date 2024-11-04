@@ -56,7 +56,7 @@ st.dataframe(filtered_df[['name', 'created_year', 'updated_at',  'stargazers_cou
 
 # Q1 - Most Famous Repo
 most_starred_repo = filtered_df.loc[filtered_df['stargazers_count'].idxmax()]
-st.write("Most famous repository:", most_starred_repo['name'],  " with stars:", most_starred_repo['stargazers_count'])
+st.write("Most famous repository:", most_starred_repo['name'],  " stars:", most_starred_repo['stargazers_count'])
 
 # Q2 - Recently Updated Repo
 most_recent_repo = filtered_df.loc[filtered_df['updated_at'].idxmax()]
