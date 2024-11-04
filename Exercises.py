@@ -10,15 +10,14 @@ with open("repos.json", "r") as f:
     data = json.load(f)
 
 
-    def test_data_integrity(load_data):
-        df = load_data
-        # Check notnull values in key columns
-        assert df['name'].notnull().all(), "All repositories should have names"
-        assert df['created_at'].notnull().all(), "All repositories should have creation dates"
-        assert df['stargazers_count'].notnull().all(), "All repositories should have a stargazer count"
-
 # Convert JSON to a DataFrame for easier manipulation
 repos_df = pd.json_normalize(data)
+
+def test_data_integrity():
+    # Check notnull values in key columns
+    assert repos_df['name'].notnull().all(), "All repositories should have names"
+    assert repos_df['created_at'].notnull().all(), "All repositories should have creation dates"
+    assert repos_df['stargazers_count'].notnull().all(), "All repositories should have a stargazer count"
 
 # Quick Data Overview
 (repos_df.head())
